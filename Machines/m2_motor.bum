@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1553344948590" org.eventb.texttools.text_representation="machine m2_motor refines m1_shafts sees c2_motor&#10;&#10;variables floor cabinShaft motor&#10;&#10;invariants&#10;&#9;@inv1 motor ∈ CABIN → MOTOR // satisfies REQ 6&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;  &#9;then&#10;  &#9;&#9;@act3: motor ≔ INIT_MOTOR&#10;  end&#10;&#10;  event MotorStarts&#10;  &#9;any c&#10;  &#9;where&#10;  &#9;&#9;@grd1: c ∈ CABIN&#10;  &#9;&#9;@grd2: motor(c) = OFF&#10;  &#9;&#9;@grd3: (cabinShaft(c)=DOWN⇒floor(c)≠0) // cabin's motor can't start when it is in DOWN shaft and bottom floor- where would it go?&#10;  &#9;&#9;@grd4: (cabinShaft(c)=UP⇒floor(c)≠TOP_FLOOR) // same as above but for UP shaft&#10;  &#9;&#9;@grd5: (cabinShaft(c)=UP)⇒(∀x·(x∈CABIN∧cabinShaft(x)=UP⇒floor(x)≠floor(c)+1)) // if cabin is in UP shaft, its motor should not be started if there is another cabin above it&#10;  &#9;&#9;@grd6: (cabinShaft(c)=DOWN)⇒(∀x·(x∈CABIN∧cabinShaft(x)=DOWN⇒floor(x)≠floor(c)−1)) // if cabin is in DOWN shaft, its motor should not be started if there is another cabin below it&#10;  &#9;&#9;// the two guards above satisfy SAF 8 (no collisions)&#10;  &#9;then&#10;  &#9;&#9;@act1: motor(c) ≔ ON&#10;  &#9;end&#10;&#10;  event MotorStops&#10;  &#9;any c&#10;  &#9;where&#10;  &#9;&#9;@grd1: c ∈ CABIN&#10;  &#9;&#9;@grd2: motor(c) = ON&#10;  &#9;then&#10;  &#9;&#9;@act1: motor(c) ≔ OFF&#10;  &#9;end&#10;&#10;  event CabinUpToDown extends CabinUpToDown&#10;  &#9;where&#10;  &#9;&#9;@grd5: motor(c) = OFF // make sure motor is off when changing shafts&#10;  &#9;end&#10;&#10;  event CabinDownToUp extends CabinDownToUp&#10;  &#9;where&#10;  &#9;&#9;@grd5: motor(c) = OFF // make sure motor is off when changing shafts&#10;  &#9;end&#10;&#10;  event CabinMovesUp extends CabinMovesUp&#10;  &#9;where&#10;  &#9;&#9;@grd5: motor(c) = ON // satisfies REQ 7&#10;  &#9;end&#10;&#10;   event CabinMovesDown extends CabinMovesDown&#10;  &#9;where&#10;  &#9;&#9;@grd5: motor(c) = ON // satsifies REQ 7&#10;  &#9;end&#10;end&#10;" version="5">
+    <org.eventb.core.refinesMachine name="_ECzy8Ef9EemcjO4jN4mqHQ" org.eventb.core.target="m1_shafts"/>
+    <org.eventb.core.seesContext name="_ECzy80f9EemcjO4jN4mqHQ" org.eventb.core.target="c2_motor"/>
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_EC0aAEf9EemcjO4jN4mqHQ" org.eventb.core.assignment="motor ≔ INIT_MOTOR" org.eventb.core.generated="false" org.eventb.core.label="act3;"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="_EC0aAUf9EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="floor"/>
+    <org.eventb.core.variable name="_EC1BEEf9EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="cabinShaft"/>
+    <org.eventb.core.variable name="_EC1BEUf9EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="motor"/>
+    <org.eventb.core.invariant name="_EC1BEkf9EemcjO4jN4mqHQ" org.eventb.core.comment="satisfies REQ 6" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="motor ∈ CABIN → MOTOR"/>
+    <org.eventb.core.event name="_iRJkYEf-EemcjO4jN4mqHQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="MotorStarts">
+        <org.eventb.core.parameter name="_iRKLcEf-EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_iRKLcUf-EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.label="grd1;" org.eventb.core.predicate="c ∈ CABIN"/>
+        <org.eventb.core.guard name="_iRKLckf-EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.label="grd2;" org.eventb.core.predicate="motor(c) = OFF"/>
+        <org.eventb.core.guard name="_iRKLc0f-EemcjO4jN4mqHQ" org.eventb.core.comment="cabin's motor can't start when it is in DOWN shaft and bottom floor- where would it go?" org.eventb.core.generated="false" org.eventb.core.label="grd3;" org.eventb.core.predicate="(cabinShaft(c)=DOWN⇒floor(c)≠0)"/>
+        <org.eventb.core.guard name="_iRKygEf-EemcjO4jN4mqHQ" org.eventb.core.comment="same as above but for UP shaft" org.eventb.core.generated="false" org.eventb.core.label="grd4;" org.eventb.core.predicate="(cabinShaft(c)=UP⇒floor(c)≠TOP_FLOOR)"/>
+        <org.eventb.core.action name="_iRKygUf-EemcjO4jN4mqHQ" org.eventb.core.assignment="motor(c) ≔ ON" org.eventb.core.generated="false" org.eventb.core.label="act1;"/>
+        <org.eventb.core.guard name="_j0P5YUf_EemcjO4jN4mqHQ" org.eventb.core.comment="if cabin is in UP shaft, its motor should not be started if there is another cabin above it" org.eventb.core.generated="false" org.eventb.core.label="grd5;" org.eventb.core.predicate="(cabinShaft(c)=UP)⇒(∀x·(x∈CABIN∧cabinShaft(x)=UP⇒floor(x)≠floor(c)+1))"/>
+        <org.eventb.core.guard name="_OZsQwEgJEemia8w-R3Jbug" org.eventb.core.comment="if cabin is in DOWN shaft, its motor should not be started if there is another cabin below it&#10;the two guards above satisfy SAF 8 (no collisions)" org.eventb.core.generated="false" org.eventb.core.label="grd6;" org.eventb.core.predicate="(cabinShaft(c)=DOWN)⇒(∀x·(x∈CABIN∧cabinShaft(x)=DOWN⇒floor(x)≠floor(c)−1))"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_2J_XEEf-EemcjO4jN4mqHQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="MotorStops">
+        <org.eventb.core.parameter name="_2J_-IEf-EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_2J_-IUf-EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.label="grd1;" org.eventb.core.predicate="c ∈ CABIN"/>
+        <org.eventb.core.guard name="_2J_-Ikf-EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.label="grd2;" org.eventb.core.predicate="motor(c) = ON"/>
+        <org.eventb.core.action name="_2J_-I0f-EemcjO4jN4mqHQ" org.eventb.core.assignment="motor(c) ≔ OFF" org.eventb.core.generated="false" org.eventb.core.label="act1;"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_j0PSUEf_EemcjO4jN4mqHQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinUpToDown">
+        <org.eventb.core.refinesEvent name="_j0P5YEf_EemcjO4jN4mqHQ" org.eventb.core.target="CabinUpToDown"/>
+        <org.eventb.core.guard name="_j0P5ZEf_EemcjO4jN4mqHQ" org.eventb.core.comment="make sure motor is off when changing shafts" org.eventb.core.generated="false" org.eventb.core.label="grd5;" org.eventb.core.predicate="motor(c) = OFF"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_j0P5Ykf_EemcjO4jN4mqHQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinDownToUp">
+        <org.eventb.core.refinesEvent name="_j0P5Y0f_EemcjO4jN4mqHQ" org.eventb.core.target="CabinDownToUp"/>
+        <org.eventb.core.guard name="_j0Qgckf_EemcjO4jN4mqHQ" org.eventb.core.comment="make sure motor is off when changing shafts" org.eventb.core.generated="false" org.eventb.core.label="grd5;" org.eventb.core.predicate="motor(c) = OFF"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_j0QgcEf_EemcjO4jN4mqHQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinMovesUp">
+        <org.eventb.core.refinesEvent name="_j0QgcUf_EemcjO4jN4mqHQ" org.eventb.core.target="CabinMovesUp"/>
+        <org.eventb.core.guard name="_j0RHgUf_EemcjO4jN4mqHQ" org.eventb.core.comment="satisfies REQ 7" org.eventb.core.generated="false" org.eventb.core.label="grd5;" org.eventb.core.predicate="motor(c) = ON"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_j0Qgc0f_EemcjO4jN4mqHQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinMovesDown">
+        <org.eventb.core.refinesEvent name="_j0RHgEf_EemcjO4jN4mqHQ" org.eventb.core.target="CabinMovesDown"/>
+        <org.eventb.core.guard name="_OZwiMEgJEemia8w-R3Jbug" org.eventb.core.comment="satsifies REQ 7" org.eventb.core.generated="false" org.eventb.core.label="grd5;" org.eventb.core.predicate="motor(c) = ON"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

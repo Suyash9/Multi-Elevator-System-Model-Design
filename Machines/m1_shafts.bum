@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1553343771338" org.eventb.texttools.text_representation="machine m1_shafts refines m0_cabins sees c1_shafts&#10;&#10;variables floor cabinShaft&#10;&#10;invariants&#10;&#9;@inv2 cabinShaft ∈ CABIN → SHAFTS // all cabins must be in a shaft&#10;&#9;@inv3 ∀x,y·(x∈CABIN∧y∈CABIN∧x≠y∧cabinShaft(x)=cabinShaft(y))⇒floor(x)≠floor(y) // SAF 8 -- no collisions between cabins&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;  &#9;then&#10;  &#9;&#9;@act2: cabinShaft ≔ INIT_SHAFT&#10;  &#9;end&#10;&#10;  event CabinUpToDown&#10;  &#9;any c&#10;  &#9;where&#10;  &#9;&#9;@grd1: c ∈ CABIN&#10;  &#9;&#9;@grd2: floor(c) = TOP_FLOOR // satisfies REQ 4&#10;  &#9;&#9;@grd3: cabinShaft(c) = UP&#10;  &#9;&#9;@grd4: ∀x·(x∈CABIN∧cabinShaft(x)=DOWN)⇒floor(x)≠TOP_FLOOR // to satisfy inv3 (SAF 8)&#10;  &#9;then&#10;  &#9;&#9;@act1: cabinShaft(c) ≔ DOWN&#10;  &#9;end&#10;&#10;  event CabinDownToUp&#10;  &#9;any c&#10;  &#9;where&#10;  &#9;&#9;@grd1: c ∈ CABIN&#10;  &#9;&#9;@grd2: floor(c) = 0 // satisfies REQ 5&#10;  &#9;&#9;@grd3: cabinShaft(c) = DOWN&#10;  &#9;&#9;@grd4: ∀y·(y∈CABIN∧cabinShaft(y)=UP)⇒(floor(y)≠0) // to satisfy inv3 (SAF 8)&#10;  &#9;then&#10;  &#9;&#9;@act1: cabinShaft(c) ≔ UP&#10;  &#9;end&#10;&#10;  event CabinMovesUp extends CabinMovesUp&#10;  &#9;where&#10;  &#9;&#9;@grd3: cabinShaft(c) = UP&#10;  &#9;&#9;@grd4: ∀x·(x∈CABIN∧cabinShaft(x)=UP)⇒floor(x)≠floor(c)+1 // to satisfy inv3 (SAF 8)&#10;  &#9;end&#10;&#10;   event CabinMovesDown extends CabinMovesDown&#10;  &#9;where&#10;  &#9;&#9;@grd3: cabinShaft(c) = DOWN&#10;  &#9;&#9;@grd4: ∀x·(x∈CABIN∧cabinShaft(x)=DOWN)⇒floor(x)≠floor(c)−1 // to satisfy inv3 (SAF 8)&#10;  &#9;end&#10;&#10;&#10;end&#10;" version="5">
+    <org.eventb.core.refinesMachine name="_SDsFMENGEempOu_FWjD7bw" org.eventb.core.target="m0_cabins"/>
+    <org.eventb.core.seesContext name="_SDssQENGEempOu_FWjD7bw" org.eventb.core.target="c1_shafts"/>
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_b9STQEf2EemW84y-MXgDEQ" org.eventb.core.assignment="cabinShaft ≔ INIT_SHAFT" org.eventb.core.generated="false" org.eventb.core.label="act2;"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="_iSx1sEf2EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.identifier="floor"/>
+    <org.eventb.core.variable name="_SDssQkNGEempOu_FWjD7bw" org.eventb.core.generated="false" org.eventb.core.identifier="cabinShaft"/>
+    <org.eventb.core.invariant name="_SDtTUENGEempOu_FWjD7bw" org.eventb.core.comment="all cabins must be in a shaft" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="cabinShaft ∈ CABIN → SHAFTS"/>
+    <org.eventb.core.event name="_22g08Ef1EemW84y-MXgDEQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="CabinUpToDown">
+        <org.eventb.core.parameter name="_22hcAEf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_22hcAUf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="grd1;" org.eventb.core.predicate="c ∈ CABIN"/>
+        <org.eventb.core.guard name="_22iDEEf1EemW84y-MXgDEQ" org.eventb.core.comment="satisfies REQ 4" org.eventb.core.generated="false" org.eventb.core.label="grd2;" org.eventb.core.predicate="floor(c) = TOP_FLOOR"/>
+        <org.eventb.core.guard name="_22iDEUf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="grd3;" org.eventb.core.predicate="cabinShaft(c) = UP"/>
+        <org.eventb.core.guard name="_dIUtkEf3EemW84y-MXgDEQ" org.eventb.core.comment="to satisfy inv3 (SAF 8)" org.eventb.core.generated="false" org.eventb.core.label="grd4;" org.eventb.core.predicate="∀x·(x∈CABIN∧cabinShaft(x)=DOWN)⇒floor(x)≠TOP_FLOOR"/>
+        <org.eventb.core.action name="_SDssQUNGEempOu_FWjD7bw" org.eventb.core.assignment="cabinShaft(c) ≔ DOWN" org.eventb.core.generated="false" org.eventb.core.label="act1;"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_22iqIEf1EemW84y-MXgDEQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="CabinDownToUp">
+        <org.eventb.core.parameter name="_22iqIUf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_22jRMEf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="grd1;" org.eventb.core.predicate="c ∈ CABIN"/>
+        <org.eventb.core.guard name="_22jRMUf1EemW84y-MXgDEQ" org.eventb.core.comment="satisfies REQ 5" org.eventb.core.generated="false" org.eventb.core.label="grd2;" org.eventb.core.predicate="floor(c) = 0"/>
+        <org.eventb.core.guard name="_22jRMkf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="grd3;" org.eventb.core.predicate="cabinShaft(c) = DOWN"/>
+        <org.eventb.core.guard name="_SqyiQEf4EemW84y-MXgDEQ" org.eventb.core.comment="to satisfy inv3 (SAF 8)" org.eventb.core.generated="false" org.eventb.core.label="grd4;" org.eventb.core.predicate="∀y·(y∈CABIN∧cabinShaft(y)=UP)⇒(floor(y)≠0)"/>
+        <org.eventb.core.action name="_22iDEkf1EemW84y-MXgDEQ" org.eventb.core.assignment="cabinShaft(c) ≔ UP" org.eventb.core.generated="false" org.eventb.core.label="act1;"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_22j4QUf1EemW84y-MXgDEQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinMovesUp">
+        <org.eventb.core.refinesEvent name="_22kfUEf1EemW84y-MXgDEQ" org.eventb.core.target="CabinMovesUp"/>
+        <org.eventb.core.guard name="_22kfUUf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="grd3;" org.eventb.core.predicate="cabinShaft(c) = UP"/>
+        <org.eventb.core.guard name="_xxh7UEf5EemW84y-MXgDEQ" org.eventb.core.comment="to satisfy inv3 (SAF 8)" org.eventb.core.generated="false" org.eventb.core.label="grd4;" org.eventb.core.predicate="∀x·(x∈CABIN∧cabinShaft(x)=UP)⇒floor(x)≠floor(c)+1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_22lGYEf1EemW84y-MXgDEQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinMovesDown">
+        <org.eventb.core.refinesEvent name="_22lGYUf1EemW84y-MXgDEQ" org.eventb.core.target="CabinMovesDown"/>
+        <org.eventb.core.guard name="_22lGYkf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="grd3;" org.eventb.core.predicate="cabinShaft(c) = DOWN"/>
+        <org.eventb.core.guard name="_20oo0Ef5EemW84y-MXgDEQ" org.eventb.core.comment="to satisfy inv3 (SAF 8)" org.eventb.core.generated="false" org.eventb.core.label="grd4;" org.eventb.core.predicate="∀x·(x∈CABIN∧cabinShaft(x)=DOWN)⇒floor(x)≠floor(c)−1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="__vJysE1dEemUOty6eQAtXw" org.eventb.core.comment="SAF 8 -- no collisions between cabins" org.eventb.core.generated="false" org.eventb.core.label="inv3" org.eventb.core.predicate="∀x,y·(x∈CABIN∧y∈CABIN∧x≠y∧cabinShaft(x)=cabinShaft(y))⇒floor(x)≠floor(y)"/>
+</org.eventb.core.machineFile>
