@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1552755559323" org.eventb.texttools.text_representation="context c3_door extends c2_motor&#10;&#10;sets DOOR&#10;&#10;constants OPEN HALF CLOSED INIT_DOOR&#10;&#10;axioms&#10;&#9;@axiom1: partition(DOOR,{OPEN},{HALF},{CLOSED}) // satsifies REQ 9&#10;&#9;@axiom2: INIT_DOOR ∈ CABIN → DOOR&#10;&#9;@axiom3: ∀c·(c∈CABIN⇒INIT_DOOR(c)=CLOSED) // initially, all cabin doors are closed&#10;end&#10;" version="3">
+    <org.eventb.core.extendsContext name="_dRryAEgEEemcjO4jN4mqHQ" org.eventb.core.target="c2_motor"/>
+    <org.eventb.core.carrierSet name="_dRryAUgEEemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="DOOR"/>
+    <org.eventb.core.constant name="_dRsZEEgEEemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="OPEN"/>
+    <org.eventb.core.constant name="_dRsZEUgEEemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="HALF"/>
+    <org.eventb.core.constant name="_dRsZEkgEEemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="CLOSED"/>
+    <org.eventb.core.constant name="_dRsZE0gEEemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="INIT_DOOR"/>
+    <org.eventb.core.axiom name="_dRsZFEgEEemcjO4jN4mqHQ" org.eventb.core.comment="satsifies REQ 9" org.eventb.core.generated="false" org.eventb.core.label="axiom1;" org.eventb.core.predicate="partition(DOOR,{OPEN},{HALF},{CLOSED})"/>
+    <org.eventb.core.axiom name="_dRtAIEgEEemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.label="axiom2;" org.eventb.core.predicate="INIT_DOOR ∈ CABIN → DOOR"/>
+    <org.eventb.core.axiom name="_dRtAIUgEEemcjO4jN4mqHQ" org.eventb.core.comment="initially, all cabin doors are closed" org.eventb.core.generated="false" org.eventb.core.label="axiom3;" org.eventb.core.predicate="∀c·(c∈CABIN⇒INIT_DOOR(c)=CLOSED)"/>
+</org.eventb.core.contextFile>

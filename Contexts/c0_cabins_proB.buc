@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1552916796624" org.eventb.texttools.text_representation="context c0_cabins_proB extends c0_cabins&#10;&#10;axioms&#10;  @defNoCabins NO_CABINS = 3&#10;  @defTop_Floor TOP_FLOOR = 5 // implementations of no_cabins and top_floor&#10;end&#10;" version="3">
+    <org.eventb.core.extendsContext name="_4NtKMEM7EemwBIhtI7_GBQ" org.eventb.core.target="c0_cabins"/>
+    <org.eventb.core.axiom name="_4NtKMUM7EemwBIhtI7_GBQ" org.eventb.core.generated="false" org.eventb.core.label="defNoCabins" org.eventb.core.predicate="NO_CABINS = 3"/>
+    <org.eventb.core.axiom name="_8VwycENAEemwBIhtI7_GBQ" org.eventb.core.comment="implementations of no_cabins and top_floor" org.eventb.core.generated="false" org.eventb.core.label="defTop_Floor" org.eventb.core.predicate="TOP_FLOOR = 5"/>
+</org.eventb.core.contextFile>

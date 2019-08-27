@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1552753455402" org.eventb.texttools.text_representation="context c2_motor extends c1_shafts&#10;&#10;sets MOTOR&#10;&#10;constants INIT_MOTOR ON OFF&#10;&#10;axioms&#10;&#9;@axiom1: partition(MOTOR, {ON}, {OFF}) // satisfies REQ 6&#10;&#9;@axiom2: INIT_MOTOR ∈ CABIN → MOTOR&#10;&#9;@axiom3: ∀x·(x∈CABIN)⇒INIT_MOTOR(x)=OFF // initially motor of all cabins are off&#10;end&#10;" version="3">
+    <org.eventb.core.extendsContext name="_IeUU8Ef9EemcjO4jN4mqHQ" org.eventb.core.target="c1_shafts"/>
+    <org.eventb.core.carrierSet name="_EDK_UEf9EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="MOTOR"/>
+    <org.eventb.core.constant name="_EDK_UUf9EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="INIT_MOTOR"/>
+    <org.eventb.core.axiom name="_EDLmYEf9EemcjO4jN4mqHQ" org.eventb.core.comment="satisfies REQ 6" org.eventb.core.generated="false" org.eventb.core.label="axiom1;" org.eventb.core.predicate="partition(MOTOR, {ON}, {OFF})"/>
+    <org.eventb.core.axiom name="_EDLmYUf9EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.label="axiom2;" org.eventb.core.predicate="INIT_MOTOR ∈ CABIN → MOTOR"/>
+    <org.eventb.core.axiom name="_EDLmYkf9EemcjO4jN4mqHQ" org.eventb.core.comment="initially motor of all cabins are off" org.eventb.core.generated="false" org.eventb.core.label="axiom3;" org.eventb.core.predicate="∀x·(x∈CABIN)⇒INIT_MOTOR(x)=OFF"/>
+    <org.eventb.core.constant name="_jxIT8Ef_EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="ON"/>
+    <org.eventb.core.constant name="_jxIT8Uf_EemcjO4jN4mqHQ" org.eventb.core.generated="false" org.eventb.core.identifier="OFF"/>
+</org.eventb.core.contextFile>

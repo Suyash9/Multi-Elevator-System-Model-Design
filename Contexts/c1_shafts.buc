@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1552752383588" org.eventb.texttools.text_representation="context c1_shafts extends c0_cabins_proB&#10;&#10;sets SHAFTS&#10;&#10;constants UP DOWN INIT_SHAFT&#10;&#10;axioms&#10;&#9;@axiom1: partition(SHAFTS,{UP},{DOWN}) // satisfies req 2&#10;&#9;@axiom2: INIT_SHAFT ∈ CABIN → SHAFTS&#10;&#9;@axiom3: ∀x,y·(x∈CABIN∧y∈CABIN∧x≠y)⇒((INIT_FLOOR(x)=INIT_FLOOR(y))⇒(INIT_SHAFT(x)≠INIT_SHAFT(y)))&#10;    // the top axiom is a safety assumption (SAF 8) no collisions between cabins&#10;end&#10;" version="3">
+    <org.eventb.core.extendsContext name="_PlblwEf2EemW84y-MXgDEQ" org.eventb.core.target="c0_cabins_proB"/>
+    <org.eventb.core.axiom name="_djZUokNEEempOu_FWjD7bw" org.eventb.core.comment="satisfies req 2" org.eventb.core.generated="false" org.eventb.core.label="axiom1;" org.eventb.core.predicate="partition(SHAFTS,{UP},{DOWN})"/>
+    <org.eventb.core.carrierSet name="_47gVQENEEempOu_FWjD7bw" org.eventb.core.generated="false" org.eventb.core.identifier="SHAFTS"/>
+    <org.eventb.core.constant name="_47gVQUNEEempOu_FWjD7bw" org.eventb.core.generated="false" org.eventb.core.identifier="UP"/>
+    <org.eventb.core.constant name="_47gVQkNEEempOu_FWjD7bw" org.eventb.core.generated="false" org.eventb.core.identifier="DOWN"/>
+    <org.eventb.core.constant name="_3BMa8Ef1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.identifier="INIT_SHAFT"/>
+    <org.eventb.core.axiom name="_3BMa8Uf1EemW84y-MXgDEQ" org.eventb.core.generated="false" org.eventb.core.label="axiom2;" org.eventb.core.predicate="INIT_SHAFT ∈ CABIN → SHAFTS"/>
+    <org.eventb.core.axiom name="_Mb6QEEf2EemW84y-MXgDEQ" org.eventb.core.comment="the top axiom is a safety assumption (SAF 8) no collisions between cabins" org.eventb.core.generated="false" org.eventb.core.label="axiom3;" org.eventb.core.predicate="∀x,y·(x∈CABIN∧y∈CABIN∧x≠y)⇒((INIT_FLOOR(x)=INIT_FLOOR(y))⇒(INIT_SHAFT(x)≠INIT_SHAFT(y)))"/>
+</org.eventb.core.contextFile>
